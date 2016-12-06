@@ -1,0 +1,15 @@
+{
+  "name": "cooc_redis_selenium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nightwatch": "^0.9.9",
+    "selenium-server-standalone-jar": "^3.0.1"
+  }
+}
