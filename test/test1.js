@@ -1,9 +1,11 @@
 module.exports = {
+  beforeEach: function(browser) {
+    browser.resizeWindow(1920, 1080);
+  },
   'go to github index page': function(browser) {
     browser
-      .url('www.google.com')
-      .pause(10000)
-      .waitForElementVisible('div')
+      .url('https://github.com/')
+      .waitForElementVisible('.header-logo-invertocat')
       .end();
   }
 };
