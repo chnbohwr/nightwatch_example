@@ -1,11 +1,21 @@
+var selenium = require('selenium-server-standalone-jar');
+var phantom = require('phantomjs');
+
 var config = {
-  "selenium" : {
-    "start_process" : true,
-    "server_path" : "",
-    "log_path" : "",
-    "port" : 4444,
-    "cli_args" : {
-      "webdriver.chrome.driver" : "bin/chromedriver_mac"
+  "src_folders" : ["test"],
+  "selenium": {
+    "start_process": true,
+    "server_path": selenium.path
+  },
+  "test_settings" : {
+    "default" : {
+      "desiredCapabilities": {
+        "browserName": "phantomjs",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true,
+        "phantomjs.binary.path": phantom.path,
+        "phantomjs.cli.args": []
+      }
     }
   }
 }
