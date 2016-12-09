@@ -1,11 +1,14 @@
 var selenium = require('selenium-server-standalone-jar');
-var phantom = require('phantomjs-prebuilt');
+var chromeDriver = require('chrome-driver-standalone');
 
 var config = {
   "src_folders": ["test"],
   "selenium": {
     "start_process": true,
-    "server_path": selenium.path
+    "server_path": selenium.path,
+    "cli_args": {
+      "webdriver.chrome.driver": chromeDriver.path
+    }
   },
   "test_settings": {
     "default": {
@@ -13,11 +16,7 @@ var config = {
         "waitForConditionTimeout": 30000
       },
       "desiredCapabilities": {
-        "browserName": "phantomjs",
-        "javascriptEnabled": true,
-        "acceptSslCerts": true,
-        "phantomjs.binary.path": phantom.path,
-        "phantomjs.cli.args": []
+        "browserName": "chrome",
       }
     }
   }
