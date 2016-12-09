@@ -10,8 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chrome-driver-standalone": "^2.25.0",
     "nightwatch": "^0.9.9",
-    "phantomjs": "^2.1.7",
+    "phantomjs-prebuilt": "^2.1.13",
     "selenium-server-standalone-jar": "^3.0.1"
   }
 }

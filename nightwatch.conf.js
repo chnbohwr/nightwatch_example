@@ -1,5 +1,5 @@
 var selenium = require('selenium-server-standalone-jar');
-var phantom = require('phantomjs');
+var phantom = require('phantomjs-prebuilt');
 
 var config = {
   "src_folders": ["test"],
