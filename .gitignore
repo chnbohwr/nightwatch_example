@@ -3,3 +3,4 @@ npm-debug.log
 phantomjsdriver.log
 selenium-debug.log
 tests_output/
+screenshots/

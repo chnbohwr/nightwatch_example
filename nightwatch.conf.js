@@ -1,5 +1,6 @@
 var selenium = require('selenium-server-standalone-jar');
 var chromeDriver = require('chrome-driver-standalone');
+var phantom = require('phantomjs-prebuilt');
 
 var config = {
   "custom_commands_path": "command",
@@ -19,7 +20,22 @@ var config = {
       },
       "desiredCapabilities": {
         "browserName": "chrome",
+      },
+      "screenshots": {
+          "enabled": true,
+          "on_failure": true,
+          "on_error": false,
+          "path": "screenshots"
       }
+    },
+    "phantom": {
+        "desiredCapabilities" : {
+            "browserName" : "phantomjs",
+            "javascriptEnabled" : true,
+            "acceptSslCerts" : true,
+            "phantomjs.binary.path" : phantom.path,
+            "phantomjs.cli.args" : []
+        }
     }
   }
 }
