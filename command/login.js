@@ -1,12 +1,12 @@
 exports.command = function(username, password){
-  var browser = this;
+  var browser = this.page.github();
   browser
-    .url('https://github.com')
-    .click('body > header > div > div > div > a.btn.site-header-actions-btn.mr-1')
-    .waitForElementVisible('#login_field')
-    .setValue('#login_field', username)
-    .setValue('#password', password)
-    .click('input.btn')
-    .waitForElementVisible('img.avatar')
+    .navigate()
+    .click('@index_login_btn')
+    .waitForElementVisible('@login_field_username')
+    .setValue('@login_field_username', username)
+    .setValue('@login_field_password', password)
+    .click('@login_field_submit')
+    .waitForElementVisible('@index_avatar')
   return this;
 };

@@ -1,6 +1,11 @@
+var randomstring = require("randomstring");
 var username = 'fastfood001';
 var password = 'fastfood000';
-var repositoryName = 'CVWEF324W33EFWE';
+var repositoryName = randomstring.generate({
+  length: 12,
+  charset: 'alphabetic'
+});
+
 module.exports = {
   'go to github index page': function(browser) {
     browser

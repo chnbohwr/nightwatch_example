@@ -1,16 +1,16 @@
 exports.command = function (account, repositoryName) {
-    var browser = this;
+    var browser = this.page.github();
     var resName = account + '/' + repositoryName;
     browser
-        .url('https://github.com')
+        .navigate()
         .click('span[title="' + resName + '"]')
-        .waitForElementVisible('#js-repo-pjax-container')
-        .click('#js-repo-pjax-container > div.pagehead.repohead.instapaper_ignore.readability-menu.experiment-repo-nav > div:nth-child(2) > nav > a:nth-child(8)')
-        .waitForElementVisible('#rename_field')
-        .click('#options_bucket > div.boxed-group.dangerzone > div > button:nth-child(11)')
-        .waitForElementVisible('#facebox')
-        .setValue('#facebox > div > div > form > p > input', repositoryName)
-        .click('#facebox > div > div > form > button')
-        .waitForElementVisible('.flash-notice')
+        .waitForElementVisible('@rep_container')
+        .click('@rep_setting')
+        .waitForElementVisible('@setting_field_rename')
+        .click('@setting_delete')
+        .waitForElementVisible('@setting_modal')
+        .setValue('@setting_modal_resname', repositoryName)
+        .click('@setting_modal_del')
+        .waitForElementVisible('@index_flashnotice')
     return this;
 }

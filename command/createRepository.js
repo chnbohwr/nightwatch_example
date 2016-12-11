@@ -1,13 +1,13 @@
 exports.command = function(repositoryName){
-    var browser = this;
+    var browser = this.page.github();
     browser
-        .url('https://github.com')
-        .click('.header-nav-link.tooltipped.tooltipped-s.js-menu-target')
-        .waitForElementVisible('.dropdown-menu.dropdown-menu-sw')
-        .click('.dropdown-item:first-child')
-        .waitForElementVisible('#repository_name')
-        .setValue('#repository_name', repositoryName)
-        .click('.btn.btn-primary.first-in-line')
-        .waitForElementVisible('.pagehead-actions')
+        .navigate()
+        .click('@index_create_button')
+        .waitForElementVisible('@index_dropdown')
+        .click('@index_dropdown_newrep')
+        .waitForElementVisible('@newrep_field_name')
+        .setValue('@newrep_field_name', repositoryName)
+        .click('@newrep_field_submit')
+        .waitForElementVisible('@rep_container')
     return this;
 }
