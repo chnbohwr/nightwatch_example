@@ -2,6 +2,7 @@ var selenium = require('selenium-server-standalone-jar');
 var chromeDriver = require('chrome-driver-standalone');
 
 var config = {
+  "custom_commands_path": "command",
   "src_folders": ["test"],
   "selenium": {
     "start_process": true,
