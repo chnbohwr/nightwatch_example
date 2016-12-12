@@ -1,5 +1,6 @@
 var selenium = require('selenium-server-standalone-jar');
 var chromeDriver = require('chrome-driver-standalone');
+var geckoDriver = require('geckodriver');
 var phantom = require('phantomjs-prebuilt');
 
 var config = {
@@ -10,7 +11,8 @@ var config = {
     "start_process": true,
     "server_path": selenium.path,
     "cli_args": {
-      "webdriver.chrome.driver": chromeDriver.path
+      "webdriver.chrome.driver": chromeDriver.path,
+      "webdriver.gecko.driver": geckoDriver.path
     }
   },
   "test_settings": {
@@ -35,6 +37,11 @@ var config = {
             "acceptSslCerts" : true,
             "phantomjs.binary.path" : phantom.path,
             "phantomjs.cli.args" : []
+        }
+    },
+    "firefox": {
+        "desiredCapabilities": {
+            browserName: 'firefox'
         }
     }
   }
